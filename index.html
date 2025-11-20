@@ -15,34 +15,55 @@
 </head>
 
 <body>
+  <!-- Site Header / Navbar -->
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="#home">DevCatalyst</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <button class="nav-close" aria-label="Close navigation">
+          <i class="fas fa-times"></i>
+        </button>
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <!-- Scrollable Container -->
   <div class="scrollable-container">
-    <section class="page profile-page">
+    <section class="page profile-page" id="home">
       <div class="profile-content">
         <div class="profile-text">
-          <h1>Full-Stack Web Developer & Cybersecurity Expert</h1>
-          <p>
+          <h1 data-animate="fade-up">
+            <span class="static-text">I'm a</span>
+            <span class="dynamic-role"></span>
+          </h1>
+          <p class="dynamic-description" data-animate="fade-up">
             Hi, I'm <strong>Daniel Adeyi</strong>.<br>
-            I build secure, scalable web applications and perform penetration testing, vulnerability assessments, and
-            security audits. I specialize in full-stack development with React, Node.js, and Python, while ensuring
-            robust application security.
+            <span class="role-description"></span>
           </p>
         </div>
-        <div class="profile-image">
+        <div class="profile-image" data-animate="zoom-in">
           <img src="./Images/profile.jpg" alt="Daniel Adeyi Portrait" />
         </div>
       </div>
     </section>
-    <section class="page services-page">
+    <section class="page services-page" id="about">
       <h2>What I Do</h2>
       <div class="services-cards">
-        <div class="service-card">
+        <div class="service-card" data-animate="fade-right">
           <span class="service-icon">💻</span>
           <h3>Full-Stack Web Development</h3>
           <p>Building responsive, scalable web applications using modern frameworks like React, Node.js, and Python.
             From frontend to backend, I deliver complete solutions.</p>
         </div>
-        <div class="service-card">
+        <div class="service-card" data-animate="fade-left">
           <span class="service-icon">🛡️</span>
           <h3>Cybersecurity Services</h3>
           <p>Conducting penetration testing, vulnerability assessments, security audits, and implementing secure coding
@@ -50,9 +71,9 @@
         </div>
       </div>
     </section>
-    <section class="page skills-page">
+    <section class="page skills-page" id="skills">
       <h2>The Skills, Tools & Technologies I Use</h2>
-      <div class="skills-icons">
+      <div class="skills-icons" data-animate="fade-up">
         <div class="tech-icon-wrapper">
           <i class="fa-brands fa-html5" style="color: #e34c26;"></i>
           <span>HTML5</span>
@@ -103,47 +124,45 @@
         </div>
       </div>
     </section>
-    <section class="page portfolio-page">
+    <section class="page portfolio-page" id="projects">
       <h2>My Portfolio</h2>
       <div class="portfolio-projects">
-        <div class="project-card">
-          <img src="./Images/insidelautech.png" alt="Inside LAUTECH Website" />
-          <h3>InsideLAUTECH</h3>
-          <p>University website for students to provide for their needs and offer services.</p>
-         <a href="https://insidelautech.vercel.app/" class="btn btn-sm"
-        style="background-color: #87CEEB; border: 2px solid black; color: #000;">
-        <i class="bi bi-send"></i> Check it out here
-    </a>
+        <div class="project-card" data-animate="fade-up">
+          <div class="project-media">
+            <img src="./Images/insidelautech.png" alt="Inside LAUTECH Website" />
+            <a class="project-overlay" href="https://insidelautech.vercel.app/" target="_blank" rel="noopener">View
+              Project</a>
+          </div>
+          <h3>Inside LAUTECH</h3>
+          <p>University website for provision of students daily needs.</p>
           <div class="tech-stack">
             <i class="fa-brands fa-html5" title="HTML5"></i>
             <i class="fa-brands fa-css3-alt" title="CSS3"></i>
             <i class="fa-brands fa-js" title="JavaScript"></i>
           </div>
         </div>
-        <div class="project-card">
-          <img src="./Images/restaurant.png" alt="Restaurant Website" />
+        <div class="project-card" data-animate="fade-up">
+          <div class="project-media">
+            <img src="./Images/restaurant.png" alt="Restaurant Website" />
+            <a class="project-overlay" href="https://cata-foods-restaurant.vercel.app/" target="_blank"
+              rel="noopener">View Project</a>
+          </div>
           <h3>CataFoods Restaurant</h3>
           <p>Modern restaurant website with menu display, online ordering, and reservation system.</p>
-           <a href="https://cata-foods-restaurant.vercel.app/" class="btn btn-sm"
-        style="background-color: #87CEEB; border: 2px solid black; color: #000;">
-        <i class="bi bi-send"></i> Check it out here
-    </a>
-      
           <div class="tech-stack">
             <i class="fa-brands fa-html5" title="HTML5"></i>
             <i class="fa-brands fa-css3-alt" title="CSS3"></i>
             <i class="fa-brands fa-js" title="JavaScript"></i>
           </div>
         </div>
-        <div class="project-card">
-          <img src="./Images/oja'ya.png" alt="Oja'ya E-commerce Platform" />
+        <div class="project-card" data-animate="fade-up">
+          <div class="project-media">
+            <img src="./Images/oja'ya.png" alt="Oja'ya E-commerce Platform" />
+            <a class="project-overlay" href="https://team-sparkle-d5m4.vercel.app/" target="_blank" rel="noopener">View
+              Project</a>
+          </div>
           <h3>Oja'ya</h3>
           <p>E-commerce marketplace platform connecting local vendors with customers.</p>
-           <a href="https://team-sparkle-d5m4.vercel.app/" class="btn btn-sm"
-        style="background-color: #87CEEB; border: 2px solid black; color: #000;">
-        <i class="bi bi-send"></i> Check it out here
-    </a>
-        
           <div class="tech-stack">
             <i class="fa-brands fa-html5" title="HTML5"></i>
             <i class="fa-brands fa-css3-alt" title="CSS3"></i>
@@ -152,13 +171,13 @@
         </div>
       </div>
     </section>
-    <section class="page contact-page">
+    <section class="page contact-page" id="contact">
       <h2>Contact Me</h2>
-      <div class="contact-cta">
+      <div class="contact-cta" data-animate="zoom-in">
         <p>Let's work together on your next project!</p>
-        <a href="https://wa.me/2347034755802?text=Hi%20Daniel%2C%20I%27m%20interested%20in%20your%20services"
+        <a href="https://wa.me/2347037455802?text=Hi%20Daniel%2C%20I%27m%20interested%20in%20your%20services"
           class="whatsapp-btn" target="_blank">
-          <i class="fa-brands fa-whatsapp"></i> Contact Us on WhatsApp
+          <i class="fa-brands fa-whatsapp"></i> Contact me on WhatsApp
         </a>
       </div>
       <div class="contact-info">
@@ -171,14 +190,140 @@
     </section>
   </div>
 
+  <!-- Scroll to top button -->
+  <button id="toTop" aria-label="Back to top">↑</button>
+
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Animation + Scrollspy Script -->
+  <script>
+    // Typewriter animation for hero section
+    const roles = [
+      {
+        title: 'Web Developer',
+        description: 'I build secure, scalable web applications using modern frameworks like React, Node.js, and Python. From frontend to backend, I deliver complete solutions that prioritize performance and user experience.'
+      },
+      {
+        title: 'Cybersecurity Expert',
+        description: 'I perform penetration testing, vulnerability assessments, and security audits to protect digital assets. I specialize in identifying threats and implementing robust security measures to safeguard applications.'
+      }
+    ];
+
+    let currentRoleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+    const roleElement = document.querySelector('.dynamic-role');
+    const descriptionElement = document.querySelector('.role-description');
+
+    function typeWriter() {
+      const currentRole = roles[currentRoleIndex];
+
+      if (!isDeleting) {
+        // Typing
+        roleElement.textContent = currentRole.title.substring(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === currentRole.title.length) {
+          // Finished typing, update description
+          descriptionElement.textContent = currentRole.description;
+          isDeleting = true;
+          typingSpeed = 3000; // Pause at end
+        } else {
+          typingSpeed = 100; // Normal typing speed
+        }
+      } else {
+        // Deleting
+        if (charIndex > 0) {
+          roleElement.textContent = currentRole.title.substring(0, charIndex - 1);
+          charIndex--;
+          typingSpeed = 50; // Faster deleting
+        } else {
+          // Finished deleting, move to next role
+          isDeleting = false;
+          currentRoleIndex = (currentRoleIndex + 1) % roles.length;
+          typingSpeed = 500; // Pause before typing next
+        }
+      }
+
+      setTimeout(typeWriter, typingSpeed);
+    }
+
+    // Start typewriter effect
+    descriptionElement.textContent = roles[0].description;
+    setTimeout(typeWriter, 1000); // Start after 1 second
+
+    // Mobile nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const navClose = document.querySelector('.nav-close');
+    const nav = document.querySelector('.nav');
+
+    toggle?.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      document.body.classList.toggle('nav-open');
+    });
+
+    navClose?.addEventListener('click', () => {
+      nav.classList.remove('open');
+      document.body.classList.remove('nav-open');
+    });
+
+    // Reveal on scroll using IntersectionObserver
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+    // Animate h2 headers
+    const h2Observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.page h2').forEach(h2 => h2Observer.observe(h2));
+
+    // Scrollspy for active nav link
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    const links = new Map(Array.from(document.querySelectorAll('.nav-link')).map(a => [a.getAttribute('href')?.slice(1), a]));
+
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
+          const link = links.get(id);
+          link?.classList.add('active');
+        }
+      });
+    }, { threshold: 0.6 });
+    sections.forEach(s => spy.observe(s));
+
+    // Smooth scroll for internal nav links
+    document.querySelectorAll('.nav-link').forEach(a => a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        nav.classList.remove('open');
+      }
+    }));
+
+    // Scroll to top button
+    const toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) toTop.classList.add('show'); else toTop.classList.remove('show');
+    });
+    toTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
 </body>
 
-
 </html>
-
-
-
-
-
