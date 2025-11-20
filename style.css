@@ -411,9 +411,9 @@ body.nav-open {
 }
 
 .portfolio-projects {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 360px));
     gap: 36px;
-    flex-wrap: wrap;
     justify-content: center;
     animation: slideInUp 1s ease-out 0.3s both;
 }
@@ -771,6 +771,14 @@ body.nav-open {
 
 .portfolio-projects .project-card:nth-child(3) {
     transition-delay: 0.18s;
+}
+
+.portfolio-projects .project-card:nth-child(4) {
+    transition-delay: 0.24s;
+}
+
+.portfolio-projects .project-card:nth-child(5) {
+    transition-delay: 0.30s;
 }
 
 /* Project media overlay */
