@@ -540,12 +540,33 @@ body.nav-open {
 
 /* Header / Navbar styles */
 .site-header {
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 1000;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1400;
     backdrop-filter: saturate(140%) blur(10px);
-    background: rgba(7, 12, 24, 0.6);
+    background: rgba(7, 12, 24, 0.75);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 22px rgba(0, 0, 0, 0.35);
+}
+
+/* Fallback class (optional) if user wants fully fixed header) */
+.site-header.fixed {
+    position: fixed;
+    top: 0;
+}
+
+/* Offset first page so fixed header doesn't cover content */
+.page:first-of-type {
+    padding-top: 140px;
+}
+
+@media (max-width: 768px) {
+    .page:first-of-type {
+        padding-top: 160px;
+    }
 }
 
 .nav {
@@ -781,6 +802,10 @@ body.nav-open {
 
 .portfolio-projects .project-card:nth-child(5) {
     transition-delay: 0.30s;
+}
+
+.portfolio-projects .project-card:nth-child(6) {
+    transition-delay: 0.36s;
 }
 
 /* Project media overlay */
