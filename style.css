@@ -385,6 +385,22 @@ body.nav-open {
     animation-delay: 0.65s;
 }
 
+.tech-icon-wrapper:nth-child(13) {
+    animation-delay: 0.7s;
+}
+
+.tech-icon-wrapper:nth-child(14) {
+    animation-delay: 0.75s;
+}
+
+.tech-icon-wrapper:nth-child(15) {
+    animation-delay: 0.8s;
+}
+
+.tech-icon-wrapper:nth-child(16) {
+    animation-delay: 0.85s;
+}
+
 .skills-icons img {
     width: 70px;
     height: 70px;
