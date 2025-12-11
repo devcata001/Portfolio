@@ -824,6 +824,10 @@ body.nav-open {
     transition-delay: 0.36s;
 }
 
+.portfolio-projects .project-card:nth-child(7) {
+    transition-delay: 0.42s;
+}
+
 /* Project media overlay */
 .project-media {
     position: relative;
