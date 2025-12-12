@@ -96,22 +96,20 @@ body.nav-open {
     margin-bottom: 20px;
     letter-spacing: 1px;
     text-shadow: 0 0 24px rgba(124, 92, 255, 0.25);
-    min-height: 1.2em;
+    min-height: 2.5em;
 }
 
 .profile-text h1 .static-text {
-    display: inline-block;
-    margin-right: 10px;
+    display: block;
 }
 
 .profile-text h1 .dynamic-role {
-    display: inline-block;
+    display: block;
     color: var(--neon);
-    position: relative;
     text-shadow: 0 0 20px rgba(34, 230, 184, 0.5);
-    white-space: nowrap;
-    overflow: hidden;
     border-right: 3px solid var(--neon);
+    padding-right: 0;
+    width: fit-content;
     animation: blink 0.8s step-end infinite;
 }
 
