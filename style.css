@@ -26,11 +26,134 @@ body {
     overflow-x: hidden;
     width: 100%;
     max-width: 100vw;
+    transition: background 0.5s ease, color 0.3s ease;
+}
+
+/* Light mode styles */
+body.light-mode {
+    --bg-start: #f0f4f8;
+    --bg-end: #e2e8f0;
+    --text: #1e293b;
+    --muted: #475569;
+    --neon: #0891b2;
+    --neon-2: #7c3aed;
+    --card: rgba(255, 255, 255, 0.9);
+    --card-border: rgba(124, 58, 237, 0.2);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+    background: radial-gradient(1200px 600px at 80% 10%, rgba(124, 58, 237, 0.08), transparent 60%),
+        radial-gradient(900px 500px at 10% 30%, rgba(8, 145, 178, 0.08), transparent 60%),
+        linear-gradient(180deg, var(--bg-start), var(--bg-end));
+}
+
+body.light-mode .site-header {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .nav-toggle span {
+    background: #1e293b;
+}
+
+body.light-mode .brand {
+    color: #1e293b;
+}
+
+body.light-mode .nav-link {
+    color: #475569;
+}
+
+body.light-mode .nav-link:hover,
+body.light-mode .nav-link.active {
+    color: #0891b2;
+}
+
+body.light-mode .profile-text h1 .dynamic-role {
+    color: #0891b2;
+    text-shadow: 0 0 20px rgba(8, 145, 178, 0.3);
+    border-color: #0891b2;
+}
+
+body.light-mode .service-card,
+body.light-mode .tech-icon-wrapper,
+body.light-mode .project-card {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border-color: rgba(124, 58, 237, 0.15);
+}
+
+body.light-mode .service-card:hover,
+body.light-mode .tech-icon-wrapper:hover,
+body.light-mode .project-card:hover {
+    box-shadow: 0 10px 40px rgba(124, 58, 237, 0.2);
+    border-color: rgba(124, 58, 237, 0.3);
+}
+
+body.light-mode #toTop {
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .contact-info i {
+    color: #0891b2;
+}
+
+/* Light mode mobile menu styles */
+body.light-mode .nav-links {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode .nav-close {
+    background: rgba(0, 0, 0, 0.08);
+    color: #1e293b;
+}
+
+body.light-mode .nav-close:hover {
+    background: rgba(0, 0, 0, 0.12);
+    color: #0891b2;
+}
+
+@media (max-width: 900px) {
+    body.light-mode .nav-link {
+        color: #475569;
+    }
+
+    body.light-mode .nav-link:hover,
+    body.light-mode .nav-link.active {
+        background: rgba(8, 145, 178, 0.1);
+        color: #0891b2;
+    }
 }
 
 /* Prevent body scroll when mobile nav is open */
 body.nav-open {
     overflow: hidden;
+}
+
+body.nav-open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 998;
+    animation: fadeInOverlay 0.3s ease-out;
+}
+
+body.light-mode.nav-open::before {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeInOverlay {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* Scrollable Container */
@@ -149,8 +272,21 @@ body.nav-open {
     transition: transform 0.3s ease;
 }
 
+@keyframes profileFloat {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
 .profile-image img:hover {
-    transform: scale(1.05) rotate(5deg);
+    transform: scale(1.08) rotate(8deg);
+    box-shadow: 0 0 60px rgba(251, 191, 36, 0.8);
 }
 
 .services-page h2 {
@@ -180,6 +316,31 @@ body.nav-open {
     width: 420px;
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     border: 1px solid var(--card-border);
+}
+
+/* Remove stagger animation for service cards */
+.service-card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.service-card:nth-child(2) {
+    animation-delay: 0s;
+}
+
+.service-card:nth-child(3) {
+    animation-delay: 0s;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .service-card:hover {
@@ -288,8 +449,69 @@ body.nav-open {
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
 
+/* Remove stagger animation delays */
+.tech-icon-wrapper:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.tech-icon-wrapper:nth-child(2) {
+    animation-delay: 0s;
+}
+
+.tech-icon-wrapper:nth-child(3) {
+    animation-delay: 0s;
+}
+
+.tech-icon-wrapper:nth-child(4) {
+    animation-delay: 0s;
+}
+
+.tech-icon-wrapper:nth-child(5) {
+    animation-delay: 0s;
+}
+
+.tech-icon-wrapper:nth-child(6) {
+    animation-delay: 0s;
+}
+
+.tech-icon-wrapper:nth-child(7) {
+    animation-delay: 0s;
+}
+
+.tech-icon-wrapper:nth-child(8) {
+    animation-delay: 0s;
+}
+
+.tech-icon-wrapper:nth-child(9) {
+    animation-delay: 0s;
+}
+
+.tech-icon-wrapper:nth-child(10) {
+    animation-delay: 0s;
+}
+
+.tech-icon-wrapper:nth-child(11) {
+    animation-delay: 0s;
+}
+
+.tech-icon-wrapper:nth-child(12) {
+    animation-delay: 0s;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 .tech-icon-wrapper:hover {
-    transform: translateY(-8px) rotate(5deg);
+    transform: translateY(-8px) rotate(5deg) scale(1.05);
     box-shadow: 0 18px 40px rgba(34, 230, 184, 0.22);
     border-color: rgba(34, 230, 184, 0.35);
     animation: wiggle 0.5s ease;
@@ -318,6 +540,21 @@ body.nav-open {
 }
 
 .tech-icon-wrapper:hover i {
+    transform: scale(1.2) rotateY(360deg);
+    transition: transform 0.6s ease;
+}
+
+/* Custom C++ icon styling */
+.cpp-icon .cpp-text {
+    font-size: 2.8rem;
+    font-weight: 900;
+    font-family: 'Courier New', monospace;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.cpp-icon:hover .cpp-text {
     transform: scale(1.2) rotateY(360deg);
     transition: transform 0.6s ease;
 }
@@ -444,12 +681,29 @@ body.nav-open {
     text-align: left;
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     border: 1px solid var(--card-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(124, 92, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.project-card:hover::before {
+    left: 100%;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(124, 92, 255, 0.25);
-    border-color: rgba(124, 92, 255, 0.45);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(124, 92, 255, 0.3);
+    border-color: rgba(124, 92, 255, 0.5);
 }
 
 .project-card h3 {
@@ -517,6 +771,18 @@ body.nav-open {
     transition: all 0.3s ease;
     box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
     text-decoration: none;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 8px 32px rgba(37, 211, 102, 0.6);
+    }
 }
 
 .whatsapp-btn:hover {
@@ -639,6 +905,9 @@ body.nav-open {
     width: 40px;
     height: 32px;
     position: relative;
+    cursor: pointer;
+    z-index: 1001;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .nav-toggle span {
@@ -662,6 +931,13 @@ body.nav-open {
 
 .nav-toggle span:nth-child(3) {
     top: 22px;
+}
+
+/* Hide hamburger when nav is open */
+.nav.open .nav-toggle {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 /* Close button for mobile nav (hidden by default) */
@@ -701,6 +977,56 @@ body.nav-open {
         opacity: 1;
         pointer-events: auto;
         transition: transform .35s ease, opacity 0s, visibility 0s;
+        animation: slideInRight 0.35s ease-out;
+    }
+
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    /* Stagger animation for nav links */
+    .nav.open .nav-links li {
+        animation: fadeInUp 0.4s ease-out backwards;
+    }
+
+    .nav.open .nav-links li:nth-child(2) {
+        animation-delay: 0.05s;
+    }
+
+    .nav.open .nav-links li:nth-child(3) {
+        animation-delay: 0.1s;
+    }
+
+    .nav.open .nav-links li:nth-child(4) {
+        animation-delay: 0.15s;
+    }
+
+    .nav.open .nav-links li:nth-child(5) {
+        animation-delay: 0.2s;
+    }
+
+    .nav.open .nav-links li:nth-child(6) {
+        animation-delay: 0.25s;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .nav-toggle {
@@ -725,6 +1051,19 @@ body.nav-open {
         cursor: pointer;
         transition: all 0.3s ease;
         font-size: 1.2rem;
+        animation: rotateIn 0.4s ease-out;
+    }
+
+    @keyframes rotateIn {
+        from {
+            opacity: 0;
+            transform: rotate(-90deg) scale(0.5);
+        }
+
+        to {
+            opacity: 1;
+            transform: rotate(0) scale(1);
+        }
     }
 
     .nav-close:hover {
@@ -899,12 +1238,94 @@ body.nav-open {
     transform: translateY(10px);
     pointer-events: none;
     transition: all .25s ease;
+    font-size: 1.4rem;
+    font-weight: bold;
+    z-index: 1000;
 }
 
 #toTop.show {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+    animation: bounceIn 0.6s ease-out;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.5);
+    }
+
+    50% {
+        transform: translateY(-5px) scale(1.1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+#toTop:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 18px 50px rgba(34, 230, 184, 0.5);
+    animation: buttonPulse 0.8s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+
+    0%,
+    100% {
+        transform: translateY(-5px) scale(1.1);
+    }
+
+    50% {
+        transform: translateY(-7px) scale(1.15);
+    }
+}
+
+/* Theme toggle button */
+#themeToggle {
+    position: fixed;
+    right: 20px;
+    bottom: 80px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: linear-gradient(135deg, var(--neon-2), var(--neon));
+    color: #fff;
+    box-shadow: 0 14px 40px rgba(124, 92, 255, 0.35);
+    cursor: pointer;
+    transition: all .3s ease;
+    font-size: 1.2rem;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: bounceIn 0.6s ease-out 0.2s both;
+}
+
+#themeToggle:hover {
+    transform: translateY(-5px) scale(1.1) rotate(20deg);
+    box-shadow: 0 18px 50px rgba(124, 92, 255, 0.5);
+}
+
+#themeToggle i {
+    transition: transform 0.3s ease;
+}
+
+#themeToggle:hover i {
+    transform: rotate(360deg);
+}
+
+body.light-mode #themeToggle {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    box-shadow: 0 14px 40px rgba(251, 191, 36, 0.35);
+}
+
+body.light-mode #themeToggle:hover {
+    box-shadow: 0 18px 50px rgba(251, 191, 36, 0.5);
 }
 
 /* Medium screens - 2 columns */
@@ -929,30 +1350,66 @@ body.nav-open {
         gap: 30px;
         width: 100%;
         max-width: 100%;
+        padding: 0 1rem;
     }
 
     .profile-text {
         width: 100%;
         max-width: 100%;
+        text-align: center;
     }
 
     .profile-text h1 {
-        font-size: 2em;
+        font-size: 1.8em;
+        min-height: 2.8em;
+    }
+
+    .profile-text h1 .dynamic-role {
+        margin: 0 auto;
+    }
+
+    .profile-text p {
+        font-size: 1.05em;
+        min-height: 140px;
+    }
+
+    .profile-image img {
+        width: 220px;
+        height: 220px;
+    }
+
+    .services-page h2,
+    .skills-page h2,
+    .portfolio-page h2,
+    .contact-page h2 {
+        font-size: 1.8em;
+        text-align: center;
     }
 
     .services-cards {
         flex-direction: column;
         align-items: center;
+        gap: 30px;
     }
 
     .service-card {
-        width: 90%;
-        max-width: 320px;
+        width: 100%;
+        max-width: 350px;
+        padding: 28px 24px;
+    }
+
+    .service-card h3 {
+        font-size: 1.3em;
+    }
+
+    .service-card p {
+        font-size: 1em;
     }
 
     .portfolio-projects {
         grid-template-columns: 1fr;
         max-width: 90%;
+        gap: 25px;
     }
 
     .project-card {
@@ -961,7 +1418,8 @@ body.nav-open {
     }
 
     .skills-icons {
-        gap: 20px;
+        gap: 16px;
+        padding: 0 1rem;
     }
 
     .tech-icon-wrapper {
@@ -970,12 +1428,89 @@ body.nav-open {
     }
 
     .tech-icon-wrapper i {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+    }
+
+    .tech-icon-wrapper span {
+        font-size: 0.85em;
     }
 
     .whatsapp-btn {
         font-size: 1em;
         padding: 14px 24px;
+    }
+
+    .contact-cta p {
+        font-size: 1.1em;
+    }
+
+    .contact-info {
+        font-size: 0.95em;
+    }
+
+    .nav-links li {
+        margin: 0;
+        width: 100%;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 12px 20px;
+        font-size: 1.05em;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        background: rgba(34, 230, 184, 0.1);
+        transform: translateX(10px);
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .profile-text h1 {
+        font-size: 1.5em;
+    }
+
+    .profile-text p {
+        font-size: 0.95em;
+    }
+
+    .profile-image img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .service-card {
+        max-width: 300px;
+        padding: 24px 20px;
+    }
+
+    .services-page h2,
+    .skills-page h2,
+    .portfolio-page h2,
+    .contact-page h2 {
+        font-size: 1.5em;
+    }
+
+    .tech-icon-wrapper {
+        width: 80px;
+        padding: 12px;
+    }
+
+    .tech-icon-wrapper i {
+        font-size: 2rem;
+    }
+
+    .tech-icon-wrapper span {
+        font-size: 0.75em;
+    }
+
+    .whatsapp-btn {
+        font-size: 0.9em;
+        padding: 12px 20px;
     }
 
     .contact-cta p {

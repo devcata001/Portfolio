@@ -11,6 +11,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome for icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Devicon for programming language icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
@@ -100,36 +102,36 @@
           <span>Python</span>
         </div>
         <div class="tech-icon-wrapper">
-          <i class="fa-brands fa-php" style="color: #777bb3;"></i>
-          <span>PHP</span>
+          <i class="devicon-c-plain" style="color: #a8b9cc;"></i>
+          <span>C</span>
+        </div>
+        <div class="tech-icon-wrapper">
+          <i class="devicon-cplusplus-plain" style="color: #00599c;"></i>
+          <span>C++</span>
         </div>
         <div class="tech-icon-wrapper">
           <i class="fa-brands fa-linux" style="color: hsla(49, 4%, 49%, 0.678);"></i>
           <span>Linux</span>
         </div>
         <div class="tech-icon-wrapper">
-          <i class="fa-solid fa-shield-halved" style="color: #00d9ff;"></i>
-          <span>Parrot OS</span>
-        </div>
-        <div class="tech-icon-wrapper">
           <i class="fa-brands fa-node-js" style="color: #68a063;"></i>
           <span>Node.js</span>
+        </div>
+        <div class="tech-icon-wrapper">
+          <i class="fa-brands fa-node-js" style="color: #ffffff;"></i>
+          <span>Express.js</span>
         </div>
         <div class="tech-icon-wrapper">
           <i class="fa-brands fa-react" style="color: #61dafb;"></i>
           <span>React</span>
         </div>
         <div class="tech-icon-wrapper">
-          <i class="fa-brands fa-docker" style="color: #0db7ed;"></i>
-          <span>Docker</span>
-        </div>
-        <div class="tech-icon-wrapper">
           <i class="fa-brands fa-git-alt" style="color: #f05032;"></i>
           <span>Git</span>
         </div>
         <div class="tech-icon-wrapper">
-          <i class="fa-solid fa-database" style="color: #00758f;"></i>
-          <span>SQL</span>
+          <i class="fa-solid fa-database" style="color: #4db33d;"></i>
+          <span>MongoDB</span>
         </div>
         <div class="tech-icon-wrapper">
           <i class="fa-brands fa-ethereum" style="color: #627eea;"></i>
@@ -177,16 +179,6 @@
         </div>
         <div class="project-card" data-animate="fade-up">
           <div class="project-media">
-            <img src="./Images/learnhub.png" alt="LearnHub Platform" />
-            <a class="project-overlay" href="https://learn-hub-seven-eta.vercel.app/pages/login.html" target="_blank"
-              rel="noopener">View
-              Project</a>
-          </div>
-          <h3>LearnHub</h3>
-          <p>Making learning more accessible and effective for students in our community.</p>
-        </div>
-        <div class="project-card" data-animate="fade-up">
-          <div class="project-media">
             <img src="./Images/spiritual-path.png" alt="SpiritualPath Platform" />
             <a class="project-overlay" href="https://spiritual-path.vercel.app/" target="_blank" rel="noopener">View
               Project</a>
@@ -231,7 +223,7 @@
       <h2>Contact Me</h2>
       <div class="contact-cta" data-animate="zoom-in">
         <p>Let's work together on your next project!</p>
-        <a href="https://wa.me/2347034755802?text=Hi%20Daniel,%2C%20I%27m%20interested%20in%20your%20services"
+        <a href="https://wa.me/2347034755802?text=Hello%20Daniel!%20I%20came%20across%20your%20portfolio%20and%20I%27d%20love%20to%20discuss%20a%20project%20with%20you.%20Are%20you%20available%20for%20a%20chat%3F"
           class="whatsapp-btn" target="_blank">
           <i class="fa-brands fa-whatsapp"></i> Contact me on WhatsApp
         </a>
@@ -250,6 +242,11 @@
 
   <!-- Scroll to top button -->
   <button id="toTop" aria-label="Back to top">↑</button>
+
+  <!-- Theme toggle button -->
+  <button id="themeToggle" aria-label="Toggle theme">
+    <i class="fas fa-moon"></i>
+  </button>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -319,6 +316,7 @@
     const toggle = document.querySelector('.nav-toggle');
     const navClose = document.querySelector('.nav-close');
     const nav = document.querySelector('.nav');
+    const navLinks = document.querySelectorAll('.nav-link');
 
     toggle?.addEventListener('click', () => {
       nav.classList.toggle('open');
@@ -328,6 +326,14 @@
     navClose?.addEventListener('click', () => {
       nav.classList.remove('open');
       document.body.classList.remove('nav-open');
+    });
+
+    // Close menu when clicking on nav links
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        document.body.classList.remove('nav-open');
+      });
     });
 
     // Reveal on scroll using IntersectionObserver
@@ -385,6 +391,33 @@
       if (window.scrollY > 400) toTop.classList.add('show'); else toTop.classList.remove('show');
     });
     toTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('i');
+    const body = document.body;
+
+    // Check for saved theme preference or default to 'dark'
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    if (currentTheme === 'light') {
+      body.classList.add('light-mode');
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+    }
+
+    themeToggle?.addEventListener('click', () => {
+      body.classList.toggle('light-mode');
+
+      if (body.classList.contains('light-mode')) {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'light');
+      } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
   </script>
 </body>
 
