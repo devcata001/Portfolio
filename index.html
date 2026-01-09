@@ -45,7 +45,7 @@
       <div class="profile-content">
         <div class="profile-text">
           <h1 data-animate="fade-up">
-            <span class="static-text">I'm a</span>
+            <span class="static-text">I'm an</span>
             <span class="dynamic-role"></span>
           </h1>
           <p class="dynamic-description" data-animate="fade-up">
@@ -61,24 +61,18 @@
     <section class="page services-page" id="about">
       <h2>What I Do</h2>
       <div class="services-cards">
+        <div class="service-card" data-animate="fade-left">
+          <span class="service-icon">🛡️</span>
+          <h3>Application Security & Ethical Hacking</h3>
+          <p>Performing penetration testing, vulnerability assessments, and security audits to identify and remediate
+            security flaws. I specialize in ethical hacking and implementing secure coding practices to protect
+            applications from real-world threats.</p>
+        </div>
         <div class="service-card" data-animate="fade-right">
           <span class="service-icon">💻</span>
           <h3>Full-Stack Web Development</h3>
           <p>Building responsive, scalable web applications using modern frameworks like React, Node.js, and Python.
             From frontend to backend, I deliver complete solutions.</p>
-        </div>
-        <div class="service-card" data-animate="fade-up">
-          <span class="service-icon"><img src="./Images/blockdag.svg" alt="BlockDAG Logo"
-              style="width: 80px; height: 80px;"></span>
-          <h3>Web3 & Blockchain Development</h3>
-          <p>Creating decentralized applications (dApps) and smart contracts on Ethereum, Solana, and other blockchain
-            platforms. Building the future of the decentralized web with secure, transparent solutions.</p>
-        </div>
-        <div class="service-card" data-animate="fade-left">
-          <span class="service-icon">🛡️</span>
-          <h3>Cybersecurity Services</h3>
-          <p>Conducting penetration testing, vulnerability assessments, security audits, and implementing secure coding
-            practices to protect applications.</p>
         </div>
       </div>
     </section>
@@ -98,6 +92,10 @@
           <span>JavaScript</span>
         </div>
         <div class="tech-icon-wrapper">
+          <i class="fa-brands fa-bootstrap" style="color: #7952b3;"></i>
+          <span>Bootstrap</span>
+        </div>
+        <div class="tech-icon-wrapper">
           <i class="fa-brands fa-python" style="color: #306998;"></i>
           <span>Python</span>
         </div>
@@ -110,7 +108,7 @@
           <span>C++</span>
         </div>
         <div class="tech-icon-wrapper">
-          <i class="fa-brands fa-linux" style="color: hsla(49, 4%, 49%, 0.678);"></i>
+          <i class="fa-brands fa-linux" style="color: #FCC624;"></i>
           <span>Linux</span>
         </div>
         <div class="tech-icon-wrapper">
@@ -134,16 +132,12 @@
           <span>MongoDB</span>
         </div>
         <div class="tech-icon-wrapper">
-          <i class="fa-brands fa-ethereum" style="color: #627eea;"></i>
-          <span>Ethereum</span>
+          <i class="fa-brands fa-github" style="color: #ffffff;"></i>
+          <span>GitHub</span>
         </div>
         <div class="tech-icon-wrapper">
-          <i class="fa-solid fa-cube" style="color: #14f195;"></i>
-          <span>Solidity</span>
-        </div>
-        <div class="tech-icon-wrapper">
-          <i class="fa-solid fa-link" style="color: #22e6b8;"></i>
-          <span>Web3.js</span>
+          <i class="devicon-mysql-plain" style="color: #4479a1;"></i>
+          <span>MySQL</span>
         </div>
       </div>
     </section>
@@ -175,7 +169,7 @@
               Project</a>
           </div>
           <h3>Oja'ya</h3>
-          <p>E-commerce marketplace platform connecting local vendors with customers.</p>
+          <p>E-commerce marketplace platform connecting local farmers with customers.</p>
         </div>
         <div class="project-card" data-animate="fade-up">
           <div class="project-media">
@@ -255,17 +249,16 @@
     // Typewriter animation for hero section
     const roles = [
       {
+        title: 'Application Security Engineer',
+        article: 'an',
+        description: 'I specialize in ethical hacking, penetration testing, and vulnerability assessments to identify and remediate security flaws. I implement secure coding practices and conduct security audits to protect applications from real-world threats.'
+      },
+      {
         title: 'Full-Stack Developer',
+        article: 'a',
         description: 'I build secure, scalable web applications using modern frameworks like React, Node.js, and Python. From frontend to backend, I deliver complete solutions that prioritize performance and user experience.'
       },
-      {
-        title: 'Blockchain Developer',
-        description: 'I create decentralized applications (dApps) and smart contracts on blockchain platforms like Ethereum and Solana. I specialize in building secure, transparent solutions for the decentralized web using Solidity, Web3.js, and modern blockchain technologies.'
-      },
-      {
-        title: 'Cybersecurity Expert',
-        description: 'I perform penetration testing, vulnerability assessments, and security audits to protect digital assets. I specialize in identifying threats and implementing robust security measures to safeguard applications.'
-      }
+
     ];
 
     let currentRoleIndex = 0;
@@ -274,6 +267,7 @@
     let typingSpeed = 100;
     const roleElement = document.querySelector('.dynamic-role');
     const descriptionElement = document.querySelector('.role-description');
+    const articleElement = document.querySelector('.static-text');
 
     function typeWriter() {
       const currentRole = roles[currentRoleIndex];
@@ -301,6 +295,7 @@
           // Finished deleting, move to next role
           isDeleting = false;
           currentRoleIndex = (currentRoleIndex + 1) % roles.length;
+          articleElement.textContent = `I'm ${roles[currentRoleIndex].article}`;
           typingSpeed = 500; // Pause before typing next
         }
       }
@@ -309,6 +304,7 @@
     }
 
     // Start typewriter effect
+    articleElement.textContent = `I'm ${roles[0].article}`;
     descriptionElement.textContent = roles[0].description;
     setTimeout(typeWriter, 1000); // Start after 1 second
 
