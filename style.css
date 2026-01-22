@@ -759,11 +759,19 @@ body.light-mode.nav-open::before {
     animation: slideInUp 1s ease-out 0.3s both;
 }
 
-.contact-cta p {
-    color: var(--text);
-    font-size: 1.2em;
-    margin-bottom: 20px;
-    font-weight: 600;
+.contact-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    font-size: 1.2rem;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 50px;
+    /* pill like WhatsApp button */
+    text-decoration: none;
+    transition: color 160ms ease, transform 140ms ease, background 160ms ease, box-shadow 160ms ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
 
 .whatsapp-btn {
@@ -1526,4 +1534,98 @@ body.light-mode #themeToggle:hover {
     .contact-cta p {
         font-size: 1em;
     }
+}
+
+/* Contact icons (spacing, hover and focus styles) */
+.contact-icons {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    /* primary spacing between icons */
+    margin-top: 12px;
+}
+
+.contact-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    font-size: 1.6rem;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
+    /* sharper square corners */
+    text-decoration: none;
+    transition: color 160ms ease, transform 140ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.contact-icon i {
+    pointer-events: none;
+    /* let the anchor handle clicks */
+}
+
+.contact-icon:hover {
+    transform: translateY(-4px) scale(1.03);
+    filter: saturate(1.05);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+}
+
+.contact-icon:focus {
+    outline: 3px solid rgba(124, 92, 255, 0.18);
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .contact-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 1.25rem;
+    }
+}
+
+/* Per-icon color, gradient and glow */
+/* Gmail (email) - red */
+.contact-email {
+    /* switch to white background so the Gmail 'M' SVG sits on white like the official mark */
+    background: #ffffff;
+    box-shadow: 0 8px 20px rgba(16, 24, 40, 0.06), 0 0 12px rgba(16, 24, 40, 0.04);
+    /* ensure svg inside is sized and centered */
+    padding: 8px;
+    /* give some breathing room for the SVG */
+}
+
+.contact-email:hover {
+    box-shadow: 0 18px 48px rgba(16, 24, 40, 0.08), 0 0 20px rgba(16, 24, 40, 0.06);
+}
+
+/* X (Twitter) - black */
+.contact-x {
+    background: linear-gradient(135deg, #111111 0%, #000000 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 18px rgba(0, 0, 0, 0.08);
+}
+
+.contact-x:hover {
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45), 0 0 36px rgba(0, 0, 0, 0.12);
+}
+
+/* Telegram - blue */
+.contact-telegram {
+    background: linear-gradient(135deg, #37AEE2 0%, #1E9BD1 100%);
+    box-shadow: 0 10px 30px rgba(30, 155, 209, 0.18), 0 0 24px rgba(55, 174, 226, 0.08);
+}
+
+.contact-telegram:hover {
+    box-shadow: 0 16px 44px rgba(30, 155, 209, 0.26), 0 0 40px rgba(55, 174, 226, 0.14);
+}
+
+/* Ensure icons' inner <i> is white for contrast */
+.contact-icon i {
+    color: #fff;
+}
+
+/* Override for email when background is white so the envelope remains visible */
+.contact-email i {
+    color: #D93025;
+    /* Gmail red */
 }

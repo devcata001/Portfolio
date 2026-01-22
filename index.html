@@ -5,8 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daniel Adeyi | Portfolio</title>
-  <!-- Favicon -->
-  <link rel="icon" type="image/jpg" href="./Images/image.jpg" />
+  <!-- Favicon (use a stable image; add query param to force refresh when deployed) -->
+  <link rel="icon" type="image/jpeg" href="./Images/image.jpg?v=2" />
+  <link rel="apple-touch-icon" href="./Images/image.jpg?v=2" />
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome for icons -->
@@ -100,8 +101,8 @@
           <span>Python</span>
         </div>
         <div class="tech-icon-wrapper">
-          <i class="devicon-c-plain" style="color: #a8b9cc;"></i>
-          <span>C</span>
+          <i class="devicon-php-plain" style="color: #777bb4;"></i>
+          <span>PHP</span>
         </div>
         <div class="tech-icon-wrapper">
           <i class="devicon-cplusplus-plain" style="color: #00599c;"></i>
@@ -222,14 +223,19 @@
           <i class="fa-brands fa-whatsapp"></i> Contact me on WhatsApp
         </a>
       </div>
-      <div class="contact-info">
-        <p><i class="fa-solid fa-envelope"></i> Email: <a
-            href="mailto:danieladeyi001@gmail.com">danieladeyi001@gmail.com</a></p>
-        <p><i class="fa-brands fa-x"></i> X: <a href="https://x.com/AOlumide38702" target="_blank"
-            rel="noopener">@AOlumide38702</a></p>
-        <p><i class="fa-brands fa-instagram"></i> Instagram: <a href="https://www.instagram.com/global_catalyst/"
-            target="_blank" rel="noopener">@global_catalyst</a></p>
-
+      <div class="contact-icons" aria-label="Contact links">
+        <a href="mailto:danieladeyi001@gmail.com" class="contact-icon contact-email" title="Email" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="https://x.com/AOlumide38702" target="_blank" rel="noopener noreferrer" class="contact-icon contact-x"
+          title="X" aria-label="X">
+          <i class="fa-brands fa-x"></i>
+        </a>
+        <!-- Instagram removed as requested -->
+        <a href="https://t.me/TheCyb3rCatalyst" target="_blank" rel="noopener noreferrer"
+          class="contact-icon contact-telegram" title="Telegram" aria-label="Telegram">
+          <i class="fa-brands fa-telegram"></i>
+        </a>
       </div>
     </section>
   </div>
@@ -257,8 +263,7 @@
         title: 'Full-Stack Developer',
         article: 'a',
         description: 'I build secure, scalable web applications using modern frameworks like React, Node.js, and Python. From frontend to backend, I deliver complete solutions that prioritize performance and user experience.'
-      },
-
+      }
     ];
 
     let currentRoleIndex = 0;
@@ -304,6 +309,7 @@
     }
 
     // Start typewriter effect
+    // Populate the first article and description
     articleElement.textContent = `I'm ${roles[0].article}`;
     descriptionElement.textContent = roles[0].description;
     setTimeout(typeWriter, 1000); // Start after 1 second
