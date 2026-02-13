@@ -17,7 +17,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PT Sans', system-ui, sans-serif;
+    font-family: 'Sora', 'PT Sans', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
@@ -28,14 +28,16 @@ body {
     --text-primary: #e8eaed;
     --text-secondary: #9aa0a6;
     --text-tertiary: #5f6368;
-    --accent-primary: #4285f4;
-    --accent-secondary: #8ab4f8;
+    --accent-primary: #8b5e34;
+    --accent-secondary: #c59a6b;
     --border-subtle: rgba(255, 255, 255, 0.08);
     --border-medium: rgba(255, 255, 255, 0.12);
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
     --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
     --shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.25);
+    --bg-photo: url("./Images/image.jpg");
+    --bg-photo-opacity: 0.4;
 
     background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
     color: var(--text-primary);
@@ -44,6 +46,21 @@ body {
     max-width: 100vw;
     line-height: 1.6;
     transition: background 0.3s ease, color 0.3s ease;
+    position: relative;
+    isolation: isolate;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: -10%;
+    background-image: var(--bg-photo);
+    background-size: cover;
+    background-position: center;
+    filter: blur(18px) saturate(1.1);
+    opacity: var(--bg-photo-opacity);
+    transform: scale(1.02);
+    z-index: -1;
 }
 
 /* === LIGHT MODE === */
@@ -54,8 +71,8 @@ body.light-mode {
     --text-primary: #1f1f1f;
     --text-secondary: #5f6368;
     --text-tertiary: #80868b;
-    --accent-primary: #1967d2;
-    --accent-secondary: #4285f4;
+    --accent-primary: #7a4e2d;
+    --accent-secondary: #b88956;
     --border-subtle: rgba(0, 0, 0, 0.08);
     --border-medium: rgba(0, 0, 0, 0.12);
     --shadow-sm: 0 1px 3px rgba(60, 64, 67, 0.1);
@@ -63,6 +80,7 @@ body.light-mode {
     --shadow-lg: 0 8px 24px rgba(60, 64, 67, 0.15);
     --shadow-xl: 0 12px 40px rgba(60, 64, 67, 0.18);
 
+    --bg-photo-opacity: 0.18;
     background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
 }
 
@@ -71,7 +89,7 @@ body.nav-open {
     overflow: hidden;
 }
 
-body.nav-open::before {
+body.nav-open::after {
     content: '';
     position: fixed;
     inset: 0;
@@ -141,6 +159,12 @@ body.light-mode .site-header {
     padding: 1rem 2rem;
 }
 
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
 .brand {
     color: var(--accent-primary);
     font-weight: 700;
@@ -185,6 +209,29 @@ body.light-mode .nav-link:hover {
 .nav-link.active {
     color: var(--accent-primary);
     background: rgba(66, 133, 244, 0.1);
+}
+
+.nav-resume-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    background: var(--accent-primary);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.nav-resume-btn:hover {
+    background: var(--accent-secondary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+    color: #fff;
 }
 
 .nav-toggle {
@@ -305,6 +352,36 @@ body.light-mode .nav-link:hover {
 
 .profile-text .role-description {
     display: inline-block;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.75rem;
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.5rem;
+    border-radius: 999px;
+    background: var(--accent-primary);
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid transparent;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.hero-btn:hover {
+    background: var(--accent-secondary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+    color: #fff;
 }
 
 .profile-image img {
