@@ -4,454 +4,595 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daniel Adeyi | Portfolio</title>
-  <!-- Favicon (use a stable image; add query param to force refresh when deployed) -->
-  <link rel="icon" type="image/jpeg" href="./Images/image.jpg?v=2" />
-  <link rel="apple-touch-icon" href="./Images/image.jpg?v=2" />
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome for icons -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <!-- Devicon for programming language icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <title>Daniel Adeyi — Security Engineer &amp; Full-Stack Developer</title>
+  <meta name="description"
+    content="Daniel Adeyi — Security Engineer, Full-Stack Developer, Web3 Developer, AI Enthusiast." />
+  <link rel="icon" type="image/jpeg" href="./Images/image.jpg" />
+  <link rel="apple-touch-icon" href="./Images/image.jpg" />
+
+  <!-- Fonts: Syne (headings) + DM Sans (body) + JetBrains Mono (labels) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <!-- Site Header / Navbar -->
-  <header class="site-header">
-    <nav class="nav">
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- Grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ================================================
+       HEADER / NAV
+  ================================================ -->
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-container" role="navigation" aria-label="Main navigation">
       <a class="brand" href="#home">Cat3lyst</a>
-      <div class="nav-right">
-        <ul class="nav-links">
-          <button class="nav-close" aria-label="Close navigation">
-            <i class="fas fa-times"></i>
+      <ul class="nav-links" id="navLinks" role="list">
+        <li class="nav-close-item">
+          <button class="nav-close-btn" id="navCloseBtn" aria-label="Close menu">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
           </button>
-          <li><a href="#home" class="nav-link active">Home</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-        <a class="nav-resume-btn" href="./resume.pdf" download>
-          <i class="fa-solid fa-download"></i>
-          Resume
+        </li>
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a class="resume-btn" href="./resume.pdf" download aria-label="Download resume">
+          <i class="fa-solid fa-download" aria-hidden="true"></i>
+          <span>Resume</span>
         </a>
-        <button class="nav-toggle" aria-label="Toggle navigation">
-          <span></span><span></span><span></span>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span>
+          <span></span>
         </button>
       </div>
     </nav>
+    <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
   </header>
 
-  <!-- Scrollable Container -->
-  <div class="scrollable-container">
-    <section class="page profile-page" id="home">
-      <div class="profile-content">
-        <div class="profile-text">
-          <h1 data-animate="fade-up">
-            <span class="static-text">I'm an</span>
-            <span class="dynamic-role"></span>
-          </h1>
-          <p class="dynamic-description" data-animate="fade-up">
-            Hi, I'm <strong>Daniel Adeyi</strong>.<br>
-            <span class="role-description"></span>
+  <!-- ================================================
+       MAIN
+  ================================================ -->
+  <main id="main-content">
+
+    <!-- 01 HERO -->
+    <section class="section hero-section" id="home" aria-label="Introduction">
+      <div class="section-index" aria-hidden="true">01</div>
+
+      <div class="hero-inner">
+        <div class="hero-text">
+          <p class="hero-availability" data-animate="fade-up">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="mono">Available for work</span>
           </p>
-        </div>
-        <div class="profile-image" data-animate="zoom-in">
-          <img src="./Images/image.jpg" alt="Web3, Cybersecurity, Web2 & AI Technologies" />
-        </div>
-      </div>
-    </section>
-    <section class="page services-page" id="about">
-      <h2>What I Do</h2>
-      <div class="services-cards">
-        <div class="service-card" data-animate="fade-left">
-          <span class="service-icon">🛡️</span>
-          <h3>Application Security & Ethical Hacking</h3>
-          <p>Performing penetration testing, vulnerability assessments, and security audits to identify and remediate
-            security flaws. I specialize in ethical hacking and implementing secure coding practices to protect
-            applications from real-world threats.</p>
-        </div>
-        <div class="service-card" data-animate="fade-right">
-          <span class="service-icon">💻</span>
-          <h3>Full-Stack Web Development</h3>
-          <p>Building responsive, scalable web applications using modern frameworks like React, Node.js, and Python.
-            From frontend to backend, I deliver complete solutions.</p>
-        </div>
-      </div>
-    </section>
-    <section class="page skills-page" id="skills">
-      <h2>The Skills, Tools & Technologies I Use</h2>
-      <div class="skills-icons" data-animate="fade-up">
-        <div class="tech-icon-wrapper">
-          <i class="fa-brands fa-html5" style="color: #e34c26;"></i>
-          <span>HTML5</span>
-        </div>
-        <div class="tech-icon-wrapper">
-          <i class="fa-brands fa-css3-alt" style="color: #264de4;"></i>
-          <span>CSS3</span>
-        </div>
-        <div class="tech-icon-wrapper">
-          <i class="fa-brands fa-js" style="color: #f0db4f;"></i>
-          <span>JavaScript</span>
-        </div>
-        <div class="tech-icon-wrapper">
-          <i class="fa-brands fa-bootstrap" style="color: #7952b3;"></i>
-          <span>Bootstrap</span>
-        </div>
-        <div class="tech-icon-wrapper">
-          <i class="fa-brands fa-python" style="color: #306998;"></i>
-          <span>Python</span>
-        </div>
-        <div class="tech-icon-wrapper">
-          <i class="devicon-php-plain" style="color: #777bb4;"></i>
-          <span>PHP</span>
-        </div>
-        <div class="tech-icon-wrapper">
-          <i class="devicon-cplusplus-plain" style="color: #00599c;"></i>
-          <span>C++</span>
-        </div>
-        <div class="tech-icon-wrapper">
-          <i class="fa-brands fa-linux" style="color: #FCC624;"></i>
-          <span>Linux</span>
-        </div>
-        <div class="tech-icon-wrapper">
-          <i class="fa-brands fa-node-js" style="color: #68a063;"></i>
-          <span>Node.js</span>
-        </div>
-        <div class="tech-icon-wrapper">
-          <i class="fa-brands fa-node-js" style="color: #ffffff;"></i>
-          <span>Express.js</span>
-        </div>
-        <div class="tech-icon-wrapper">
-          <i class="fa-brands fa-react" style="color: #61dafb;"></i>
-          <span>React</span>
-        </div>
-        <div class="tech-icon-wrapper">
-          <i class="fa-brands fa-git-alt" style="color: #f05032;"></i>
-          <span>Git</span>
-        </div>
-        <div class="tech-icon-wrapper">
-          <i class="fa-solid fa-database" style="color: #4db33d;"></i>
-          <span>MongoDB</span>
-        </div>
-        <div class="tech-icon-wrapper">
-          <i class="fa-brands fa-github" style="color: #ffffff;"></i>
-          <span>GitHub</span>
-        </div>
-        <div class="tech-icon-wrapper">
-          <i class="devicon-mysql-plain" style="color: #4479a1;"></i>
-          <span>MySQL</span>
-        </div>
-      </div>
-    </section>
-    <section class="page portfolio-page" id="projects">
-      <h2>My Portfolio</h2>
-      <div class="portfolio-projects">
-        <div class="project-card" data-animate="fade-up">
-          <div class="project-media">
-            <img src="./Images/insidelautech.png" alt="Inside LAUTECH Website" />
+          <h1 class="hero-name" data-animate="fade-up">Daniel<br>Adeyi</h1>
+          <div class="hero-role-line" data-animate="fade-up">
+            <span class="hero-im">I'm&nbsp;<span id="heroArticle">an</span>&nbsp;</span>
+            <span class="hero-role" id="heroRole"></span>
+            <span class="hero-cursor" aria-hidden="true">|</span>
           </div>
-          <div class="project-card-body">
-            <h3>InsideLAUTECH</h3>
-            <p>A campus marketplace for LAUTECH students — shop textbooks, electronics, food, clothing, and room
-              essentials with 30-minute hostel delivery. Also connects students to laundry pickup services and on-campus
-              tutors for Maths, Sciences, and Business courses.</p>
-            <a href="https://insidelautech.vercel.app/" target="_blank" rel="noopener" class="project-btn">View
-              Project</a>
+          <p class="hero-bio" data-animate="fade-up">
+            Hi, I'm <strong>Daniel Adeyi</strong>.<br>
+            <span class="hero-desc" id="roleDesc"></span>
+          </p>
+          <div class="hero-cta" data-animate="fade-up">
+            <a href="#projects" class="btn-primary">View my work <i class="fa-solid fa-arrow-right-long"
+                aria-hidden="true"></i></a>
+            <a href="#contact" class="btn-ghost">Let's talk</a>
           </div>
         </div>
-        <div class="project-card" data-animate="fade-up">
-          <div class="project-media">
-            <img src="./Images/bionova.png" alt="BioNova Platform" />
-          </div>
-          <div class="project-card-body">
-            <h3>BioNova</h3>
-            <p>A biomedical education platform for 95k+ learners, indexing 2,400+ research papers and 180+ tracked
-              innovations. Covers DNA &amp; genomics, CRISPR gene editing, AI diagnostics (94% accuracy), wearable
-              biosensors, surgical robotics, and nanomedicine — with curated resources from MIT, NIH, and Johns Hopkins.
-            </p>
-            <a href="https://bionova-chi.vercel.app/" target="_blank" rel="noopener" class="project-btn">View
-              Project</a>
-          </div>
-        </div>
-        <div class="project-card" data-animate="fade-up">
-          <div class="project-media">
-            <img src="./Images/devresume.png" alt="Resume Builder Application" />
-          </div>
-          <div class="project-card-body">
-            <h3>Resume Builder</h3>
-            <p>A profession-specific resume builder with live preview and multiple templates. Fill in personal info,
-              professional summary, skills, work experience, education, projects, and certifications — then export a
-              polished PDF in one click. No account or sign-up required.</p>
-            <a href="https://dev-resumebuilder.vercel.app/" target="_blank" rel="noopener" class="project-btn">View
-              Project</a>
-          </div>
-        </div>
-        <div class="project-card" data-animate="fade-up">
-          <div class="project-media">
-            <img src="./Images/nexabot.png" alt="Nexabot Website" />
-          </div>
-          <div class="project-card-body">
-            <h3>Nexabot</h3>
-            <p>Website for a robotics company (est. 2016) with 5,000+ deployed robots across 120+ global partners.
-              Features products like the NEXARM-7 (0.02mm industrial precision), AETHER PRIME humanoid, and FDA-cleared
-              MEDBOT-S3 surgical assistant — all powered by the custom NexaCore AI architecture at 99% uptime.</p>
-            <a href="https://nexabot-three.vercel.app/" target="_blank" rel="noopener" class="project-btn">View
-              Project</a>
-          </div>
-        </div>
-        <div class="project-card" data-animate="fade-up">
-          <div class="project-media">
-            <img src="./Images/crypto.png" alt="ChainPilot Crypto Wallet" />
-          </div>
-          <div class="project-card-body">
-            <h3>ChainPilot</h3>
-            <p>A Web3 cryptocurrency wallet with a live portfolio dashboard showing real-time asset balances and price
-              refreshes. Supports Send, Receive, Swap, and Buy operations with a full transaction history — built for
-              everyday crypto users who want a clean, no-fuss interface.</p>
-            <a href="https://catalystcryptowallet.vercel.app/" target="_blank" rel="noopener" class="project-btn">View
-              Project</a>
-          </div>
-        </div>
-        <div class="project-card" data-animate="fade-up">
-          <div class="project-media">
-            <img src="./Images/web3-analytics.png" alt="Web3 Analytics Dashboard" />
-          </div>
-          <div class="project-card-body">
-            <h3>Web3 Analytics</h3>
-            <p>A real-time blockchain dashboard tracking total market cap, 24h trading volume, active wallets, and live
-              gas prices. Includes network distribution charts (Ethereum 45%, Polygon 28%, Arbitrum 15%), a whale
-              activity feed with large buy/sell alerts, a trending smart contracts explorer, and dedicated Token, NFT,
-              and Gas Tracker pages.</p>
-            <a href="https://web3-analytics-omega.vercel.app/" target="_blank" rel="noopener" class="project-btn">View
-              Project</a>
-          </div>
-        </div>
-        <div class="project-card" data-animate="fade-up">
-          <div class="project-media">
-            <img src="./Images/phishguard.png" alt="PhishGuard Platform" />
-          </div>
-          <div class="project-card-body">
-            <h3>PhishGuard</h3>
-            <p>An AI phishing detector with 98% accuracy and sub-2-second analysis. Paste any email, SMS, or chat
-              message to get an instant risk level and threat score — flagging suspicious keywords, urgency tactics,
-              malicious links, and lookalike domains. Free forever, 100% private, no data stored. 500K+ messages
-              analyzed.</p>
-            <a href="https://phishguard-orpin.vercel.app/" target="_blank" rel="noopener" class="project-btn">View
-              Project</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="page contact-page" id="contact">
-      <h2>Contact Me</h2>
-      <div class="contact-cta" data-animate="zoom-in">
-        <p>Let's work together on your next project!</p>
-        <a href="https://wa.me/2347034755802?text=Hello%20Daniel!%20I%20came%20across%20your%20portfolio%20and%20I%27d%20love%20to%20discuss%20a%20project%20with%20you.%20Are%20you%20available%20for%20a%20chat%3F"
-          class="whatsapp-btn" target="_blank">
-          <i class="fa-brands fa-whatsapp"></i> Contact me on WhatsApp
-        </a>
-      </div>
-      <div class="contact-icons" aria-label="Contact links">
-        <a href="mailto:danieladeyi001@gmail.com" class="contact-icon contact-email" title="Email" aria-label="Email">
-          <i class="fa-solid fa-envelope"></i>
-        </a>
-        <a href="https://x.com/AOlumide38702" target="_blank" rel="noopener noreferrer" class="contact-icon contact-x"
-          title="X" aria-label="X">
-          <i class="fa-brands fa-x"></i>
-        </a>
-        <!-- Instagram removed as requested -->
-        <a href="https://t.me/Cat3lyst" target="_blank" rel="noopener noreferrer" class="contact-icon contact-telegram"
-          title="Telegram" aria-label="Telegram">
-          <i class="fa-brands fa-telegram"></i>
-        </a>
-      </div>
-    </section>
-  </div>
 
-  <!-- Scroll to top button -->
-  <button id="toTop" aria-label="Back to top">↑</button>
+        <div class="hero-visual" data-animate="zoom-in">
+          <div class="hero-img-frame">
+            <img src="./Images/image.jpg" alt="Daniel Adeyi" width="400" height="400" />
+          </div>
+          <div class="hero-badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            <span class="mono">Open to opportunities</span>
+          </div>
+        </div>
+      </div>
 
-  <!-- Theme toggle button -->
-  <button id="themeToggle" aria-label="Toggle theme">
-    <i class="fas fa-moon"></i>
+      <div class="scroll-hint" aria-hidden="true">
+        <span class="scroll-line"></span>
+        <span class="mono">scroll</span>
+      </div>
+    </section>
+
+    <!-- 02 ABOUT -->
+    <section class="section about-section" id="about" aria-label="About me">
+      <div class="section-index" aria-hidden="true">02</div>
+      <header class="section-header">
+        <span class="section-label mono" data-animate="fade-up">What I Do</span>
+        <h2 class="section-title" data-animate="fade-up">Capabilities</h2>
+      </header>
+      <div class="services-grid">
+
+        <article class="service-card" data-animate="fade-up" style="--delay:0s">
+          <span class="service-num mono" aria-hidden="true">01</span>
+          <div class="service-icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Application Security<br>&amp; Ethical Hacking</h3>
+          <p>Penetration testing, vulnerability assessments, and security audits to identify and remediate security
+            flaws. Implementing secure coding practices to protect applications from real-world threats.</p>
+          <ul class="service-tags">
+            <li>Pen Testing</li>
+            <li>OWASP</li>
+            <li>Bug Bounty</li>
+          </ul>
+        </article>
+
+        <article class="service-card" data-animate="fade-up" style="--delay:0.12s">
+          <span class="service-num mono" aria-hidden="true">02</span>
+          <div class="service-icon" aria-hidden="true"><i class="fa-solid fa-code"></i></div>
+          <h3>Full-Stack Web<br>Development</h3>
+          <p>Building responsive, scalable web applications using React, Node.js, and Python. From frontend to backend —
+            complete solutions prioritized for performance and UX.</p>
+          <ul class="service-tags">
+            <li>React</li>
+            <li>Node.js</li>
+            <li>Python</li>
+          </ul>
+        </article>
+
+        <article class="service-card" data-animate="fade-up" style="--delay:0.24s">
+          <span class="service-num mono" aria-hidden="true">03</span>
+          <div class="service-icon" aria-hidden="true"><i class="fa-solid fa-cube"></i></div>
+          <h3>Web3 &amp; Blockchain<br>Development</h3>
+          <p>Building decentralized apps, crypto wallets, and blockchain analytics dashboards. Bridging the gap between
+            Web2 polish and Web3 functionality.</p>
+          <ul class="service-tags">
+            <li>Web3</li>
+            <li>DeFi</li>
+            <li>dApps</li>
+          </ul>
+        </article>
+
+        <article class="service-card" data-animate="fade-up" style="--delay:0.36s">
+          <span class="service-num mono" aria-hidden="true">04</span>
+          <div class="service-icon" aria-hidden="true"><i class="fa-solid fa-brain"></i></div>
+          <h3>AI Integration<br>&amp; Development</h3>
+          <p>Integrating AI &amp; ML capabilities into web products — phishing detection, intelligent education
+            platforms, and real-world automation. Practical AI that solves real problems.</p>
+          <ul class="service-tags">
+            <li>AI / ML</li>
+            <li>NLP</li>
+            <li>Integration</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 03 SKILLS -->
+    <section class="section skills-section" id="skills" aria-label="Skills and tools">
+      <div class="section-index" aria-hidden="true">03</div>
+      <header class="section-header">
+        <span class="section-label mono" data-animate="fade-up">Tech Stack</span>
+        <h2 class="section-title" data-animate="fade-up">Skills &amp; Tools</h2>
+      </header>
+
+      <!-- Ticker row 1 — forward -->
+      <div class="ticker-outer" aria-label="Skills">
+        <div class="ticker-track ticker-track--fwd">
+          <div class="ticker-item"><i class="fa-brands fa-html5" style="color:#e34c26"></i><span>HTML5</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-css3-alt" style="color:#264de4"></i><span>CSS3</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-js" style="color:#f0db4f"></i><span>JavaScript</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-react" style="color:#61dafb"></i><span>React</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-node-js" style="color:#68a063"></i><span>Node.js</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-python" style="color:#306998"></i><span>Python</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-bootstrap" style="color:#7952b3"></i><span>Bootstrap</span>
+          </div>
+          <div class="ticker-item"><i class="devicon-php-plain" style="color:#777bb4"></i><span>PHP</span></div>
+          <div class="ticker-item"><i class="devicon-cplusplus-plain" style="color:#00599c"></i><span>C++</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-linux" style="color:#fcc624"></i><span>Linux</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-node-js" style="color:#aaa"></i><span>Express.js</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-git-alt" style="color:#f05032"></i><span>Git</span></div>
+          <div class="ticker-item"><i class="fa-solid fa-database" style="color:#4db33d"></i><span>MongoDB</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-github" style="color:#fff"></i><span>GitHub</span></div>
+          <div class="ticker-item"><i class="devicon-mysql-plain" style="color:#4479a1"></i><span>MySQL</span></div>
+          <!-- Duplicate for loop -->
+          <div class="ticker-item" aria-hidden="true"><i class="fa-brands fa-html5"
+              style="color:#e34c26"></i><span>HTML5</span></div>
+          <div class="ticker-item" aria-hidden="true"><i class="fa-brands fa-css3-alt"
+              style="color:#264de4"></i><span>CSS3</span></div>
+          <div class="ticker-item" aria-hidden="true"><i class="fa-brands fa-js"
+              style="color:#f0db4f"></i><span>JavaScript</span></div>
+          <div class="ticker-item" aria-hidden="true"><i class="fa-brands fa-react"
+              style="color:#61dafb"></i><span>React</span></div>
+          <div class="ticker-item" aria-hidden="true"><i class="fa-brands fa-node-js"
+              style="color:#68a063"></i><span>Node.js</span></div>
+          <div class="ticker-item" aria-hidden="true"><i class="fa-brands fa-python"
+              style="color:#306998"></i><span>Python</span></div>
+          <div class="ticker-item" aria-hidden="true"><i class="fa-brands fa-bootstrap"
+              style="color:#7952b3"></i><span>Bootstrap</span></div>
+          <div class="ticker-item" aria-hidden="true"><i class="devicon-php-plain"
+              style="color:#777bb4"></i><span>PHP</span></div>
+          <div class="ticker-item" aria-hidden="true"><i class="devicon-cplusplus-plain"
+              style="color:#00599c"></i><span>C++</span></div>
+          <div class="ticker-item" aria-hidden="true"><i class="fa-brands fa-linux"
+              style="color:#fcc624"></i><span>Linux</span></div>
+          <div class="ticker-item" aria-hidden="true"><i class="fa-brands fa-node-js"
+              style="color:#aaa"></i><span>Express.js</span></div>
+          <div class="ticker-item" aria-hidden="true"><i class="fa-brands fa-git-alt"
+              style="color:#f05032"></i><span>Git</span></div>
+          <div class="ticker-item" aria-hidden="true"><i class="fa-solid fa-database"
+              style="color:#4db33d"></i><span>MongoDB</span></div>
+          <div class="ticker-item" aria-hidden="true"><i class="fa-brands fa-github"
+              style="color:#fff"></i><span>GitHub</span></div>
+          <div class="ticker-item" aria-hidden="true"><i class="devicon-mysql-plain"
+              style="color:#4479a1"></i><span>MySQL</span></div>
+        </div>
+      </div>
+
+      <!-- Ticker row 2 — reverse -->
+      <div class="ticker-outer" aria-hidden="true">
+        <div class="ticker-track ticker-track--rev">
+          <div class="ticker-item"><i class="fa-brands fa-react" style="color:#61dafb"></i><span>React</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-python" style="color:#306998"></i><span>Python</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-git-alt" style="color:#f05032"></i><span>Git</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-js" style="color:#f0db4f"></i><span>JavaScript</span></div>
+          <div class="ticker-item"><i class="fa-solid fa-database" style="color:#4db33d"></i><span>MongoDB</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-linux" style="color:#fcc624"></i><span>Linux</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-node-js" style="color:#68a063"></i><span>Node.js</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-github" style="color:#fff"></i><span>GitHub</span></div>
+          <div class="ticker-item"><i class="devicon-mysql-plain" style="color:#4479a1"></i><span>MySQL</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-html5" style="color:#e34c26"></i><span>HTML5</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-css3-alt" style="color:#264de4"></i><span>CSS3</span></div>
+          <div class="ticker-item"><i class="devicon-cplusplus-plain" style="color:#00599c"></i><span>C++</span></div>
+          <div class="ticker-item"><i class="devicon-php-plain" style="color:#777bb4"></i><span>PHP</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-bootstrap" style="color:#7952b3"></i><span>Bootstrap</span>
+          </div>
+          <div class="ticker-item"><i class="fa-brands fa-node-js" style="color:#aaa"></i><span>Express.js</span></div>
+          <!-- Duplicate -->
+          <div class="ticker-item"><i class="fa-brands fa-react" style="color:#61dafb"></i><span>React</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-python" style="color:#306998"></i><span>Python</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-git-alt" style="color:#f05032"></i><span>Git</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-js" style="color:#f0db4f"></i><span>JavaScript</span></div>
+          <div class="ticker-item"><i class="fa-solid fa-database" style="color:#4db33d"></i><span>MongoDB</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-linux" style="color:#fcc624"></i><span>Linux</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-node-js" style="color:#68a063"></i><span>Node.js</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-github" style="color:#fff"></i><span>GitHub</span></div>
+          <div class="ticker-item"><i class="devicon-mysql-plain" style="color:#4479a1"></i><span>MySQL</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-html5" style="color:#e34c26"></i><span>HTML5</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-css3-alt" style="color:#264de4"></i><span>CSS3</span></div>
+          <div class="ticker-item"><i class="devicon-cplusplus-plain" style="color:#00599c"></i><span>C++</span></div>
+          <div class="ticker-item"><i class="devicon-php-plain" style="color:#777bb4"></i><span>PHP</span></div>
+          <div class="ticker-item"><i class="fa-brands fa-bootstrap" style="color:#7952b3"></i><span>Bootstrap</span>
+          </div>
+          <div class="ticker-item"><i class="fa-brands fa-node-js" style="color:#aaa"></i><span>Express.js</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 PROJECTS -->
+    <section class="section projects-section" id="projects" aria-label="My projects">
+      <div class="section-index" aria-hidden="true">04</div>
+      <header class="section-header">
+        <span class="section-label mono" data-animate="fade-up">Selected Work</span>
+        <h2 class="section-title" data-animate="fade-up">Projects</h2>
+      </header>
+      <div class="projects-grid">
+
+        <article class="project-card" data-animate="fade-up" style="--delay:0s">
+          <a href="https://insidelautech.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+            <div class="project-img-wrap">
+              <img src="./Images/insidelautech.png" alt="InsideLAUTECH campus marketplace" loading="lazy" />
+              <div class="project-overlay" aria-hidden="true"><span class="mono">View Live <i
+                    class="fa-solid fa-arrow-up-right-from-square"></i></span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-num mono">01</span>
+                <div class="project-tags"><span>Marketplace</span><span>E-Commerce</span></div>
+              </div>
+              <h3>InsideLAUTECH</h3>
+              <p>Campus marketplace for LAUTECH students — textbooks, electronics, food and clothing with 30-min hostel
+                delivery, laundry pickup, and on-campus tutors.</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="project-card" data-animate="fade-up" style="--delay:0.1s">
+          <a href="https://bionova-chi.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+            <div class="project-img-wrap">
+              <img src="./Images/bionova.png" alt="BioNova biomedical platform" loading="lazy" />
+              <div class="project-overlay" aria-hidden="true"><span class="mono">View Live <i
+                    class="fa-solid fa-arrow-up-right-from-square"></i></span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-num mono">02</span>
+                <div class="project-tags"><span>EdTech</span><span>Biomedical</span></div>
+              </div>
+              <h3>BioNova</h3>
+              <p>Biomedical education platform — 95k+ learners, 2,400+ research papers, covering DNA, CRISPR, AI
+                diagnostics, and surgical robotics.</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="project-card" data-animate="fade-up" style="--delay:0.2s">
+          <a href="https://dev-resumebuilder.vercel.app/" target="_blank" rel="noopener noreferrer"
+            class="project-link">
+            <div class="project-img-wrap">
+              <img src="./Images/devresume.png" alt="Resume Builder app" loading="lazy" />
+              <div class="project-overlay" aria-hidden="true"><span class="mono">View Live <i
+                    class="fa-solid fa-arrow-up-right-from-square"></i></span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-num mono">03</span>
+                <div class="project-tags"><span>Productivity</span><span>PDF</span></div>
+              </div>
+              <h3>Resume Builder</h3>
+              <p>Profession-specific resume builder with live preview, multiple templates, and one-click PDF export. No
+                sign-up required.</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="project-card" data-animate="fade-up" style="--delay:0.3s">
+          <a href="https://nexabot-three.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+            <div class="project-img-wrap">
+              <img src="./Images/nexabot.png" alt="Nexabot robotics company" loading="lazy" />
+              <div class="project-overlay" aria-hidden="true"><span class="mono">View Live <i
+                    class="fa-solid fa-arrow-up-right-from-square"></i></span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-num mono">04</span>
+                <div class="project-tags"><span>Robotics</span><span>AI</span></div>
+              </div>
+              <h3>Nexabot</h3>
+              <p>Robotics company site — 5,000+ deployed robots, 120+ global partners. NEXARM-7, AETHER PRIME humanoid,
+                and MEDBOT-S3 surgical assistant.</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="project-card" data-animate="fade-up" style="--delay:0.1s">
+          <a href="https://catalystcryptowallet.vercel.app/" target="_blank" rel="noopener noreferrer"
+            class="project-link">
+            <div class="project-img-wrap">
+              <img src="./Images/crypto.png" alt="ChainPilot crypto wallet" loading="lazy" />
+              <div class="project-overlay" aria-hidden="true"><span class="mono">View Live <i
+                    class="fa-solid fa-arrow-up-right-from-square"></i></span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-num mono">05</span>
+                <div class="project-tags"><span>Web3</span><span>Crypto</span></div>
+              </div>
+              <h3>ChainPilot</h3>
+              <p>Web3 crypto wallet with live portfolio dashboard, real-time prices, Send / Receive / Swap / Buy, and
+                full transaction history.</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="project-card" data-animate="fade-up" style="--delay:0.2s">
+          <a href="https://web3-analytics-omega.vercel.app/" target="_blank" rel="noopener noreferrer"
+            class="project-link">
+            <div class="project-img-wrap">
+              <img src="./Images/web3-analytics.png" alt="Web3 Analytics dashboard" loading="lazy" />
+              <div class="project-overlay" aria-hidden="true"><span class="mono">View Live <i
+                    class="fa-solid fa-arrow-up-right-from-square"></i></span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-num mono">06</span>
+                <div class="project-tags"><span>Blockchain</span><span>Analytics</span></div>
+              </div>
+              <h3>Web3 Analytics</h3>
+              <p>Real-time blockchain dashboard — market cap, 24h volume, gas prices, whale activity feed, NFT tracker,
+                and network charts.</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="project-card project-card--featured" data-animate="fade-up" style="--delay:0.3s">
+          <a href="https://phishguard-orpin.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+            <div class="project-img-wrap">
+              <img src="./Images/phishguard.png" alt="PhishGuard AI phishing detector" loading="lazy" />
+              <div class="project-overlay" aria-hidden="true"><span class="mono">View Live <i
+                    class="fa-solid fa-arrow-up-right-from-square"></i></span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-num mono">07</span>
+                <div class="project-tags"><span>AI</span><span>Security</span><span class="tag-featured">Featured</span>
+                </div>
+              </div>
+              <h3>PhishGuard</h3>
+              <p>AI phishing detector — 98% accuracy, sub-2s analysis. Paste any email, SMS, or chat to get instant risk
+                scores. 500K+ messages analyzed. Free and private forever.</p>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 05 CONTACT -->
+    <section class="section contact-section" id="contact" aria-label="Contact">
+      <div class="section-index" aria-hidden="true">05</div>
+      <div class="contact-inner">
+        <span class="section-label mono" data-animate="fade-up">Get In Touch</span>
+        <h2 class="contact-heading" data-animate="fade-up">Have a project<br>in mind<span class="accent-dot">?</span>
+        </h2>
+        <p class="contact-sub" data-animate="fade-up">I'm available for freelance projects, full-time roles, and
+          interesting collaborations. Let's build something great.</p>
+        <div class="contact-actions" data-animate="fade-up">
+          <a href="https://wa.me/2347034755802?text=Hello%20Daniel!%20I%20came%20across%20your%20portfolio%20and%20I%27d%20love%20to%20discuss%20a%20project%20with%20you.%20Are%20you%20available%20for%20a%20chat%3F"
+            class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Message on WhatsApp
+          </a>
+          <a href="mailto:danieladeyi001@gmail.com" class="btn-ghost">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i> Send an Email
+          </a>
+        </div>
+        <div class="social-row" data-animate="fade-up">
+          <a href="mailto:danieladeyi001@gmail.com" class="social-link" aria-label="Email"><i
+              class="fa-solid fa-envelope" aria-hidden="true"></i></a>
+          <a href="https://x.com/AOlumide38702" target="_blank" rel="noopener noreferrer" class="social-link"
+            aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+          <a href="https://t.me/Cat3lyst" target="_blank" rel="noopener noreferrer" class="social-link"
+            aria-label="Telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
+          <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="social-link"
+            aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <a class="brand" href="#home">Cat3lyst</a>
+      <p class="footer-copy"><span class="mono">&copy;&nbsp;2026</span> &mdash; Daniel Adeyi. Crafted with intention.
+      </p>
+      <div class="footer-socials">
+        <a href="https://x.com/dev_cat3lyst" target="_blank" rel="noopener noreferrer" aria-label="X"><i
+            class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://t.me/Cat3lyst" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i
+            class="fa-brands fa-telegram"></i></a>
+        <a href="https://github.com/devcata001" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
+            class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="toTop" class="to-top-btn" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
   </button>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Animation + Scrollspy Script -->
+  <!-- SCRIPTS -->
   <script>
-    // Typewriter animation for hero section
+    /* === CUSTOM CURSOR === */
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorRing = document.getElementById('cursorRing');
+    let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX; mouseY = e.clientY;
+      cursorDot.style.transform = `translate(${mouseX}px,${mouseY}px) translate(-50%,-50%)`;
+    });
+    (function animateRing() {
+      ringX += (mouseX - ringX) * 0.11;
+      ringY += (mouseY - ringY) * 0.11;
+      cursorRing.style.transform = `translate(${ringX}px,${ringY}px) translate(-50%,-50%)`;
+      requestAnimationFrame(animateRing);
+    })();
+    document.querySelectorAll('a,button,.project-card,.service-card').forEach(el => {
+      el.addEventListener('mouseenter', () => cursorRing.classList.add('ring--hover'));
+      el.addEventListener('mouseleave', () => cursorRing.classList.remove('ring--hover'));
+    });
+
+    /* === TYPEWRITER === */
     const roles = [
-      {
-        title: 'Application Security Engineer',
-        article: 'an',
-        description: 'I specialize in ethical hacking, penetration testing, and vulnerability assessments to identify and remediate security flaws. I implement secure coding practices and conduct security audits to protect applications from real-world threats.'
-      },
-      {
-        title: 'Full-Stack Developer',
-        article: 'a',
-        description: 'I build secure, scalable web applications using modern frameworks like React, Node.js, and Python. From frontend to backend, I deliver complete solutions that prioritize performance and user experience.'
-      }
+      { title: 'Security Engineer', article: 'a', desc: 'I specialize in ethical hacking, penetration testing, and vulnerability assessments — protecting applications from real-world threats.' },
+      { title: 'Full-Stack Developer', article: 'a', desc: 'Building responsive, scalable web applications from frontend to backend using React, Node.js, and Python.' },
+      { title: 'Web3 Developer', article: 'a', desc: 'Building decentralized apps, crypto wallets, and blockchain analytics tools — bridging Web2 polish with Web3 power.' },
+      { title: 'AI Enthusiast', article: 'an', desc: 'Integrating AI into real products — phishing detection, intelligent education platforms, and practical automation.' },
     ];
-
-    let currentRoleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typingSpeed = 100;
-    const roleElement = document.querySelector('.dynamic-role');
-    const descriptionElement = document.querySelector('.role-description');
-    const articleElement = document.querySelector('.static-text');
-
+    const roleEl = document.getElementById('heroRole');
+    const articleEl = document.getElementById('heroArticle');
+    const descEl = document.getElementById('roleDesc');
+    let rIdx = 0, cIdx = 0, deleting = false, spd = 95;
     function typeWriter() {
-      const currentRole = roles[currentRoleIndex];
-
-      if (!isDeleting) {
-        // Typing
-        roleElement.textContent = currentRole.title.substring(0, charIndex + 1);
-        charIndex++;
-
-        if (charIndex === currentRole.title.length) {
-          // Finished typing, update description
-          descriptionElement.textContent = currentRole.description;
-          isDeleting = true;
-          typingSpeed = 3000; // Pause at end
-        } else {
-          typingSpeed = 100; // Normal typing speed
-        }
+      const r = roles[rIdx];
+      if (!deleting) {
+        roleEl.textContent = r.title.slice(0, ++cIdx);
+        if (cIdx === r.title.length) { descEl.textContent = r.desc; deleting = true; spd = 2800; }
+        else spd = 90;
       } else {
-        // Deleting
-        if (charIndex > 0) {
-          roleElement.textContent = currentRole.title.substring(0, charIndex - 1);
-          charIndex--;
-          typingSpeed = 50; // Faster deleting
-        } else {
-          // Finished deleting, move to next role
-          isDeleting = false;
-          currentRoleIndex = (currentRoleIndex + 1) % roles.length;
-          articleElement.textContent = `I'm ${roles[currentRoleIndex].article}`;
-          typingSpeed = 500; // Pause before typing next
-        }
+        if (cIdx > 0) { roleEl.textContent = r.title.slice(0, --cIdx); spd = 45; }
+        else { deleting = false; rIdx = (rIdx + 1) % roles.length; articleEl.textContent = roles[rIdx].article; spd = 500; }
       }
-
-      setTimeout(typeWriter, typingSpeed);
+      setTimeout(typeWriter, spd);
     }
+    articleEl.textContent = roles[0].article;
+    descEl.textContent = roles[0].desc;
+    setTimeout(typeWriter, 1400);
 
-    // Start typewriter effect
-    // Populate the first article and description
-    articleElement.textContent = `I'm ${roles[0].article}`;
-    descriptionElement.textContent = roles[0].description;
-    setTimeout(typeWriter, 1000); // Start after 1 second
-
-    // Mobile nav toggle
-    const toggle = document.querySelector('.nav-toggle');
-    const navClose = document.querySelector('.nav-close');
-    const nav = document.querySelector('.nav');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    toggle?.addEventListener('click', () => {
-      nav.classList.toggle('open');
-      document.body.classList.toggle('nav-open');
-    });
-
-    navClose?.addEventListener('click', () => {
-      nav.classList.remove('open');
+    /* === MOBILE NAV === */
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    const navOverlay = document.getElementById('navOverlay');
+    function closeNav() {
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.classList.remove('is-open');
+      navLinks.classList.remove('is-open');
+      navOverlay.classList.remove('is-open');
       document.body.classList.remove('nav-open');
-    });
-
-    // Close menu when clicking on nav links
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open');
-        document.body.classList.remove('nav-open');
-      });
-    });
-
-    // Reveal on scroll using IntersectionObserver
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
-
-    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
-
-    // Animate h2 headers
-    const h2Observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.3 });
-
-    document.querySelectorAll('.page h2').forEach(h2 => h2Observer.observe(h2));
-
-    // Scrollspy for active nav link
-    const sections = Array.from(document.querySelectorAll('section[id]'));
-    const links = new Map(Array.from(document.querySelectorAll('.nav-link')).map(a => [a.getAttribute('href')?.slice(1), a]));
-
-    const spy = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
-          const link = links.get(id);
-          link?.classList.add('active');
-        }
-      });
-    }, { threshold: 0.6 });
-    sections.forEach(s => spy.observe(s));
-
-    // Smooth scroll for internal nav links
-    document.querySelectorAll('.nav-link').forEach(a => a.addEventListener('click', (e) => {
-      const href = a.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        e.preventDefault();
-        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        nav.classList.remove('open');
+    }
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.getAttribute('aria-expanded') === 'true';
+      if (open) { closeNav(); }
+      else {
+        hamburger.setAttribute('aria-expanded', 'true');
+        hamburger.classList.add('is-open');
+        navLinks.classList.add('is-open');
+        navOverlay.classList.add('is-open');
+        document.body.classList.add('nav-open');
       }
-    }));
+    });
+    navOverlay.addEventListener('click', closeNav);
+    document.getElementById('navCloseBtn').addEventListener('click', closeNav);
+    document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', closeNav));
 
-    // Scroll to top button
+    /* === SCROLL ANIMATIONS === */
+    const revObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.transitionDelay = e.target.style.getPropertyValue('--delay') || '0s';
+          e.target.classList.add('visible');
+          revObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+    document.querySelectorAll('[data-animate]').forEach(el => revObs.observe(el));
+
+    /* === SCROLLSPY === */
+    const spyObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting)
+          document.querySelectorAll('.nav-link').forEach(a =>
+            a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+      });
+    }, { threshold: 0.45 });
+    document.querySelectorAll('section[id]').forEach(s => spyObs.observe(s));
+
+    /* === HEADER SHRINK + SCROLL-TO-TOP === */
+    const siteHeader = document.getElementById('siteHeader');
     const toTop = document.getElementById('toTop');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) toTop.classList.add('show'); else toTop.classList.remove('show');
-    });
-    toTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      siteHeader.classList.toggle('scrolled', window.scrollY > 60);
+      toTop.classList.toggle('show', window.scrollY > 500);
+    }, { passive: true });
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // Theme toggle functionality
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = themeToggle.querySelector('i');
-    const body = document.body;
-
-    // Check for saved theme preference or default to 'dark'
-    const currentTheme = localStorage.getItem('theme') || 'dark';
-    if (currentTheme === 'light') {
-      body.classList.add('light-mode');
-      themeIcon.classList.remove('fa-moon');
-      themeIcon.classList.add('fa-sun');
-    }
-
-    themeToggle?.addEventListener('click', () => {
-      body.classList.toggle('light-mode');
-
-      if (body.classList.contains('light-mode')) {
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
-        localStorage.setItem('theme', 'light');
-      } else {
-        themeIcon.classList.remove('fa-sun');
-        themeIcon.classList.add('fa-moon');
-        localStorage.setItem('theme', 'dark');
-      }
+    /* === SMOOTH SCROLL === */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
     });
   </script>
 </body>
