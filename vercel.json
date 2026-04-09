@@ -1,6 +1,11 @@
 {
 "routes": [
 {
+"src": "/favicon.ico",
+"status": 410,
+"dest": "/gone.html"
+},
+{
 "src": "/(.*)",
 "status": 410,
 "dest": "/gone.html"
