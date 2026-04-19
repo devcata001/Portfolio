@@ -281,6 +281,10 @@ button {
     flex-shrink: 0;
 }
 
+.resume-btn[hidden] {
+    display: none !important;
+}
+
 .resume-btn:hover {
     opacity: 0.85;
     transform: translateY(-1px);
