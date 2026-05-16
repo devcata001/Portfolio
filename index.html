@@ -51,10 +51,6 @@
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <a class="resume-btn" href="./resume.pdf" download aria-label="Download resume" hidden>
-          <i class="fa-solid fa-download" aria-hidden="true"></i>
-          <span>Resume</span>
-        </a>
         <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
           <span></span>
           <span></span>
@@ -122,21 +118,8 @@
       </header>
       <div class="services-grid">
 
-        <article class="service-card" data-animate="fade-up" style="--delay:0s">
-          <span class="service-num mono" aria-hidden="true">01</span>
-          <div class="service-icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></div>
-          <h3>Application Security<br>&amp; Ethical Hacking</h3>
-          <p>Penetration testing, vulnerability assessments, and security audits to identify and remediate security
-            flaws. Implementing secure coding practices to protect applications from real-world threats.</p>
-          <ul class="service-tags">
-            <li>Pen Testing</li>
-            <li>OWASP</li>
-            <li>Bug Bounty</li>
-          </ul>
-        </article>
-
         <article class="service-card" data-animate="fade-up" style="--delay:0.12s">
-          <span class="service-num mono" aria-hidden="true">02</span>
+          <span class="service-num mono" aria-hidden="true">01</span>
           <div class="service-icon" aria-hidden="true"><i class="fa-solid fa-code"></i></div>
           <h3>Web Development<br>(Web2 + Web3 Frontend)</h3>
           <p>Building responsive, scalable web products with React, Node.js, Python, HTML, CSS, and JavaScript. I handle
@@ -150,8 +133,8 @@
           </ul>
         </article>
 
-        <article class="service-card" data-animate="fade-up" style="--delay:0.36s">
-          <span class="service-num mono" aria-hidden="true">03</span>
+        <article class="service-card" data-animate="fade-up" style="--delay:0.24s">
+          <span class="service-num mono" aria-hidden="true">02</span>
           <div class="service-icon" aria-hidden="true"><i class="fa-solid fa-brain"></i></div>
           <h3>AI Integration<br>&amp; Development</h3>
           <p>Integrating AI &amp; ML capabilities into web products — phishing detection, intelligent education
@@ -392,22 +375,22 @@
           </a>
         </article>
 
-        <article class="project-card project-card--featured" data-animate="fade-up" style="--delay:0.3s">
-          <a href="https://phishguard-orpin.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+        <article class="project-card" data-animate="fade-up" style="--delay:0.3s">
+          <a href="https://learn-hub-seven-eta.vercel.app/" target="_blank" rel="noopener noreferrer"
+            class="project-link">
             <div class="project-img-wrap">
-              <img src="./Images/phishguard.png" alt="PhishGuard AI phishing detector" loading="lazy" />
+              <img src="./Images/learnhub.png" alt="LearnHub education platform" loading="lazy" />
               <div class="project-overlay" aria-hidden="true"><span class="mono">View Live <i
                     class="fa-solid fa-arrow-up-right-from-square"></i></span></div>
             </div>
             <div class="project-body">
               <div class="project-meta">
                 <span class="project-num mono">07</span>
-                <div class="project-tags"><span>AI</span><span>Security</span><span class="tag-featured">Featured</span>
-                </div>
+                <div class="project-tags"><span>EdTech</span><span>Learning</span></div>
               </div>
-              <h3>PhishGuard</h3>
-              <p>AI phishing detector — 98% accuracy, sub-2s analysis. Paste any email, SMS, or chat to get instant risk
-                scores. 500K+ messages analyzed. Free and private forever.</p>
+              <h3>LearnHub</h3>
+              <p>Interactive learning platform offering courses, tutorials, and resources for students and professionals
+                across various subjects and skill levels.</p>
             </div>
           </a>
         </article>
@@ -436,11 +419,11 @@
         <div class="social-row" data-animate="fade-up">
           <a href="mailto:danieladeyi001@gmail.com" class="social-link" aria-label="Email"><i
               class="fa-solid fa-envelope" aria-hidden="true"></i></a>
-          <a href="https://x.com/AOlumide38702" target="_blank" rel="noopener noreferrer" class="social-link"
+          <a href="https://x.com/cat3lyst" target="_blank" rel="noopener noreferrer" class="social-link"
             aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
-          <a href="https://t.me/Cat3lyst" target="_blank" rel="noopener noreferrer" class="social-link"
+          <a href="https://t.me/cat3lysst" target="_blank" rel="noopener noreferrer" class="social-link"
             aria-label="Telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="social-link"
+          <a href="https://github.com/devcata001" target="_blank" rel="noopener noreferrer" class="social-link"
             aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
         </div>
       </div>
@@ -457,7 +440,7 @@
       <div class="footer-socials">
         <a href="https://x.com/cat3lyst" target="_blank" rel="noopener noreferrer" aria-label="X"><i
             class="fa-brands fa-x-twitter"></i></a>
-        <a href="https://t.me/Cat3lyst" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i
+        <a href="https://t.me/cat3lysst" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i
             class="fa-brands fa-telegram"></i></a>
         <a href="https://github.com/devcata001" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
             class="fa-brands fa-github"></i></a>
@@ -493,9 +476,8 @@
 
     /* === TYPEWRITER === */
     const roles = [
-      { title: 'Security Engineer', article: 'a', desc: 'I specialize in ethical hacking, penetration testing, and vulnerability assessments — protecting applications from real-world threats.' },
       { title: 'Web Developer', article: 'a', desc: 'Building responsive web products across Web2 full-stack and Web3 frontend using React, Node.js, Python, HTML, CSS, and JavaScript.' },
-      { title: 'AI Enthusiast', article: 'an', desc: 'Integrating AI into real products — phishing detection, intelligent education platforms, and practical automation.' },
+      { title: 'AI Enthusiast', article: 'an', desc: 'Integrating AI into real products — intelligent education platforms, and practical automation.' },
     ];
     const roleEl = document.getElementById('heroRole');
     const articleEl = document.getElementById('heroArticle');
